@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Login page</title>
+<script language="Javascript">
+var usernameArr= new Array("abc","def","ghi","jkl","mno");
+var passwordArr=new Array("abc","def","ghi","jkl","mno");
+function checkLoginCredentials()
+{
+	var enteredUserName = document.getElementById("UserNameId");
+	var enteredPassword = document.getElementById("PasswordId");
+	var validCredentials = false;
+	var TotalUsers = usernameArr.length;
+	for(i=0;i < TotalUsers;i++)
+	{ 
+	  if(enteredUserName.value == usernameArr[i] && enteredPassword.value == passwordArr[i])
+		{
+			validCredentials =true;
+		}
+	}
+	if(validCredentials == true)
+	{
+		window.location.href='DataEntry&Bill2.html'
+	}
+	else
+	{
+		alert("incorrect password or username");
+		enteredUserName.value = '';
+		enteredPassword.value = '';
+	}
+}
+</script>
+</head>
+<body style="margin-left:550px;margin-top:200px;">
+<h1>Employee Access</h1>
+<form >
+Username <input id = "UserNameId" type="text" name="userid" value=""/><br><br>
+Password <input  style="margin-left:4px;" id = "PasswordId" type="password" name="pswrd" value=""/><br><br>
+        <input style="margin-left:132px;" type="button" onclick="checkLoginCredentials()" value="Login"/>
+		<input type="reset" value="Cancel"/>
+</form>
+</body>
+</html>
+
+

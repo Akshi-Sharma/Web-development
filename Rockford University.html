@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Rockford University</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript" >
+$(document).ready(function()
+{
+	$("#LoggedInUser").hide();
+	
+	$("#HomeTab").click(function(){
+		window.location.href = "Rockford University.html";
+	});
+	$("#newsletterTab").click(function(){
+		window.location.href = "newsletter.html";
+	});
+	$("#CoursesTab").click(function(){
+		window.location.href = "Courses.html";
+	});
+	$("#facultyTab").click(function(){
+		window.location.href = "faculty.html";
+	});
+	$("#AdmissionTab").click(function(){
+		window.location.href = "admission.html";
+	});
+	$("#ContactUsTab").click(function(){
+		window.location.href = "ContactUs.html";
+	});
+	
+	var username = localStorage.getItem('usernameID');
+	if(username!='' && username!=null && username!=undefined)
+	{
+		localStorage.setItem('usernameID', username);
+		$("#LoggedInUser").show();
+		$("#LoggedInUser").text("Welcome " +localStorage.getItem('usernameID') );
+	}
+});
+
+</script>
+
+<script language="JavaScript">
+var i = 0;
+var totalImages = 5;
+function swapImage()
+{
+   document.slide.src =(i+1)+".jpg";
+   if(i < totalImages - 1) i++; else i = 0;
+   setTimeout("swapImage()",2000);
+}
+window.onload=swapImage;
+</script>
+
+
+
+</head>
+<body>
+<div class="Outerbox">
+	<div id = "nav">
+		<div id="EduForAll">
+			<div id="InnerEduForAll">Education for everyone</div>
+			<div id="LoggedInUser">
+			</div>
+		</div>
+		<div id="NavDiv">
+			<div class="navLinks" id="HomeTab"><div class="navTextDiv" >Home</div></div>
+			<div class="navLinks" id="newsletterTab"><div class="navTextDiv" >Newsletter</div></div>
+			<div class="navLinks" id="CoursesTab"><div class="navTextDiv">Courses</div></div>
+			<div class="navLinks" id = "facultyTab"><div class="navTextDiv">Faculty</div></div>
+			<div class="navLinks" id = "AdmissionTab"><div class="navTextDiv">Admission</div></div>
+			<div class="navLinks" id = "ContactUsTab"><div class="navTextDiv">Contact Us</div></div>
+		</div>
+	</div>
+	<div id = "content">
+		<div id="SlideShowDiv">
+			<div id = "SlideShowImageDiv" >
+				 <img  name="slide" src="1.jpg" width="80%" height="100%" />
+			</div>
+			<div id ="loginwindow">
+				<div id="OnlineLearn">Online Learning Portal</div>
+				<div id="UsernameDiv">
+					User:<input id="userInput"type="text"/ style="width:50%;">
+				</div>
+				<div >
+					Password:<input type="password"/ style="width:50%;">
+				</div>
+				<div id="LoginButtonDiv">
+					<button id="loginbutton" type="button">Login</button>
+				</div>
+				
+			</div>
+		</div>
+		<div class="mainContentDiv">
+			<div id="para1Div">
+			<div style="margin-top:10%;margin-left:5%;">
+				<h2>Welcome to Rockford University</h2>
+				<p>
+				Rockford University is a private American liberal arts college in Rockford, Illinois. 
+                                It was founded in 1847 as Rockford Female Seminary and changed its name to Rockford College
+                                in 1892, and to Rockford University in 2013. The university is known as the alma mater of  
+                                Nobel Peace Prize winner Jane Addams, who was a member of the class of 1881. It was the 
+                                sister college of Beloit College, which had been founded the year before. The seminary's 
+                                initial campus was on the east side of the Rock River, south of downtown Rockford. 
+				</p>
+				</div>
+				
+			</div>
+			<div class="para2Div">
+				<div id="para2Sub1" style="margin-left:5px;">
+					<div id="para2Sub1Sub1">
+						<h2>Campus Study!!</h2>
+						<p>
+						The University offers approximately 80 majors, minors and concentrations, including the adult accelerated degree completion program for a B.S. in Management Studies. Through its Graduate Studies department degrees are extended to include the Master of Business Administration (MBA) and Master of Arts in Teaching (MAT).
+Rockford University is home to one of only 11 Phi Beta Kappa (PBK) chapters in Illinois, the most prestigious honor  society in the United States. Rockford University is consistently recognized by The Princeton Review as a Best  Midwestern College, a US News & World Report Best in the Midwest Tier One University, is named to the President’s  Higher Education Community Service Honor Roll and designated a Military Friendly School®. Rockford University currently  serves approximately 1,280 full-and part-time students.
+						</p>
+
+					</div>
+					<div id="para2Sub1Sub2">
+						<img  id="para2Sub1Sub2Img"src="book.jpg" />
+					</div>
+				</div>
+				
+				<div></div>
+			</div>
+		</div>
+	</div>	
+</div>
+</body>
+</html>

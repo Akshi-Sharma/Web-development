@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<title>Rockford University</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript" >
+var teacherinfo={'fac1':"Luffy has a worldwide reputation for causing trouble, challenging the Shichibukai, the Marines, and two of the Yonko (Big Mom and Kaido), additionally committing felonies and actions which were deemed threatening by the World Government.",
+					 'fac2':"Nami is a slim young woman of average height, with orange hair and light brown eyes. Many people consider her to be very attractive or even beautiful",
+					 'fac3':"1Sanji is a pirate and the cook of the Straw Hat Pirates, the former sous chef of Baratie, and the third son of the Vinsmoke Family,",
+					 'fac4':"2Sanji is a pirate and the cook of the Straw Hat Pirates, the former sous chef of Baratie, and the third son of the Vinsmoke Family,",
+					 'fac5':"3Sanji is a pirate and the cook of the Straw Hat Pirates, the former sous chef of Baratie, and the third son of the Vinsmoke Family,",
+					 'fac6':"4Sanji is a pirate and the cook of the Straw Hat Pirates, the former sous chef of Baratie, and the third son of the Vinsmoke Family,"};
+	
+function showFacultyDetails(faculty)
+{
+	$("#facultyDescription").text(teacherinfo[faculty]);
+}
+$(document).ready(function()
+{
+	$("#LoggedInUser").hide();
+	$("#HomeTab").click(function(){
+		window.location.href = "Rockford University.html";
+	});
+	$("#newsletterTab").click(function(){
+		window.location.href = "newsletter.html";
+	});
+	$("#CoursesTab").click(function(){
+		window.location.href = "Courses.html";
+	});
+	$("#facultyTab").click(function(){
+		window.location.href = "faculty.html";
+	});
+	$("#AdmissionTab").click(function(){
+		window.location.href = "admission.html";
+	});
+	$("#ContactUsTab").click(function(){
+		window.location.href = "ContactUs.html";
+	});
+	var username = localStorage.getItem('usernameID');
+	if(username!='' && username!=null && username!=undefined)
+	{
+		localStorage.setItem('usernameID', username);
+		$("#LoggedInUser").show();
+		$("#LoggedInUser").text("Welcome " +localStorage.getItem('usernameID') );
+	}
+	
+			
+});
+
+</script>
+
+
+
+</head>
+<body>
+<div class="Outerbox">
+	<div id = "nav">
+		<div id="EduForAll">
+			<div id="InnerEduForAll">Education for everyone</div>
+			<div id="LoggedInUser">
+			</div>
+		</div>
+		<div id="NavDiv">
+			<div class="navLinks" id="HomeTab"><div class="navTextDiv" >Home</div></div>
+			<div class="navLinks" id="newsletterTab"><div class="navTextDiv" >Newsletter</div></div>
+			<div class="navLinks" id="CoursesTab"><div class="navTextDiv">Courses</div></div>
+			<div class="navLinks" id = "facultyTab"><div class="navTextDiv">Faculty</div></div>
+			<div class="navLinks" id = "AdmissionTab"><div class="navTextDiv">Admission</div></div>
+			<div class="navLinks" id = "ContactUsTab"><div class="navTextDiv">Contact Us</div></div>
+		</div>
+	</div>
+	<div id = "content">
+		<div style="height:50%;">
+			<div id="FacultyIconsDiv" >
+				 <ul class="images" id="teacherList">
+				  <li ><img src="fac1.jpg" height="250px" width="200px" id ="fac1" onclick="showFacultyDetails(this.id)"/></li>
+				  <li><img src="fac2.jpg"  height="250px" width="200px" id ="fac2" onclick="showFacultyDetails(this.id)"/></li>
+				  <li><img src="fac3.jpg"  height="250px" width="200px" id ="fac3" onclick="showFacultyDetails(this.id)"/></li>
+				  <li><img src="fac4.jpg"  height="250px" width="200px" id ="fac4" onclick="showFacultyDetails(this.id)"/></li>
+				  <li><img src="fac5.jpg" 	height="250px" width="200px" id ="fac5" onclick="showFacultyDetails(this.id)"/></li>
+				  <li><img src="fac6.jpg" 	height="250px" width="200px" id ="fac6" onclick="showFacultyDetails(this.id)"/></li>
+				</ul>
+			</div>
+			<div id="LoggedInUser">
+			</div>
+		</div>
+		<div id = "facultyDescription">
+			
+		</div>
+	</div>	
+</div>
+</body>
+</html>

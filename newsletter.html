@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Rockford University</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript" >
+$(document).ready(function()
+{
+	$("#LoggedInUser").hide();
+	$("#HomeTab").click(function(){
+		window.location.href = "Rockford University.html";
+	});
+	$("#newsletterTab").click(function(){
+		window.location.href = "newsletter.html";
+	});
+	$("#CoursesTab").click(function(){
+		window.location.href = "Courses.html";
+	});
+	$("#facultyTab").click(function(){
+		window.location.href = "faculty.html";
+	});
+	$("#AdmissionTab").click(function(){
+		window.location.href = "admission.html";
+	});
+	$("#ContactUsTab").click(function(){
+		window.location.href = "ContactUs.html";
+	});
+	var username = localStorage.getItem('usernameID');
+	if(username!='' && username!=null && username!=undefined)
+	{
+		localStorage.setItem('usernameID', username);
+		$("#LoggedInUser").show();
+		$("#LoggedInUser").text("Welcome " +localStorage.getItem('usernameID') );
+	}
+});
+
+</script>
+
+</head>
+<body>
+<div class="Outerbox">
+	<div id = "nav">
+		<div id="EduForAll">
+			<div id="InnerEduForAll">Education for everyone</div>
+			<div id="LoggedInUser">
+			</div>
+		</div>
+		<div id="NavDiv">
+			<div class="navLinks" id="HomeTab"><div class="navTextDiv" >Home</div></div>
+			<div class="navLinks" id="newsletterTab"><div class="navTextDiv" >Newsletter</div></div>
+			<div class="navLinks" id="CoursesTab"><div class="navTextDiv">Courses</div></div>
+			<div class="navLinks" id = "facultyTab"><div class="navTextDiv">Faculty</div></div>
+			<div class="navLinks" id = "AdmissionTab"><div class="navTextDiv">Admission</div></div>
+			<div class="navLinks" id = "ContactUsTab"><div class="navTextDiv">Contact Us</div></div>
+		</div>
+	</div>
+	<div id = "content">
+		<div id="NewsLetterDiv" >
+			<div style="border:solid 1px black;width:40%;height:98%;float:left;border-radius: 25px;background-color:white;text-align:left;font-family:Serif;padding:5px;">
+				<h3>   Elect Her is Coming to RU!<b>
+				</h3>
+				<p>
+				This April, the Jane Addams Center for Civic Engagement is holding a
+				workshop for Elect Her, a program run by the American Association for
+				University Women (AAUW) and Running Start. AAUW supports the emphasis
+				on women running for office, and Elect Her provides the training, encouragement,
+				and empowerment that college women need to participate in student government positions, as well as political
+				positions once their college career is over. The goal that AAUW and Running Start strive for is to eliminate the gender
+				gap between persons in office.
+				There has not yet been an Elect Her workshop in the state of Illinois, and we are honored to have been accepted to
+				host one here at Rockford University. With the help of Faye Marcus, our Rockford AAUW representative, we hope to
+				bring faculty and students of all genders from RU and other nearby campuses to participate in this event in April.
+				</p>
+				<img src="news1.jpg" style="width:62%;height:34%;margin-top:-5%;margin-left:20%;"/>
+			</div>
+			<div style="border:solid 1px black;width:56%;height:98%;float:right;border-radius: 25px;background-color:white;text-align:left;font-family:Serif;padding:5px;">
+				<h4>Community Partner Spotlight: RAASE
+				<b>
+				</h4>
+				<p>
+				Rockford Alliance Against SexualAssault (RAASE) is the recipient of the 2014-15 Community Based Learning Community Partner
+				Award. Throughout the Fall 2014 and Spring 2015 semester, RAASE worked with Human Development Senior Seminar students to address
+				issues of sexual exploitation in the community.The mission and vision of RAASE is to seek to end the demand for sexually
+				exploited individuals through preventative measures, victim protection, accountability of violators, and community engagement.To do
+				this their main objective is to change the communitys perception of and definition of sexual exploitation through education
+				and training sessions.
+				</p>
+				<img src="news2.jpg" style="width:46%;height:39%;margin-top:4%;margin-left:1%;"/>
+				<img src="news3.jpg" style="width:46%;height:39%;margin-top:0%;margin-left:5%;"/>
+
+				
+			</div>
+			
+		</div>
+	</div>	
+</div>
+</body>
+</html>

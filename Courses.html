@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Rockford University</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript" >
+$(document).ready(function()
+{
+	$("#LoggedInUser").hide();
+	
+	$("#HomeTab").click(function(){
+		window.location.href = "Rockford University.html";
+	});
+	$("#newsletterTab").click(function(){
+		window.location.href = "newsletter.html";
+	});
+	$("#CoursesTab").click(function(){
+		window.location.href = "Courses.html";
+	});
+	$("#facultyTab").click(function(){
+		window.location.href = "faculty.html";
+	});
+	$("#AdmissionTab").click(function(){
+		window.location.href = "admission.html";
+	});
+	$("#ContactUsTab").click(function(){
+		window.location.href = "ContactUs.html";
+	});
+	
+	var username = localStorage.getItem('usernameID');
+	if(username!='' && username!=null && username!=undefined)
+	{
+		localStorage.setItem('usernameID', username);
+		$("#LoggedInUser").show();
+		$("#LoggedInUser").text("Welcome " +localStorage.getItem('usernameID') );
+	}
+	
+	function wrapText(context, text, x, y, maxWidth, lineHeight) {
+        var words = text.split(' ');
+        var line = '';
+
+        for(var n = 0; n < words.length; n++) {
+          var testLine = line + words[n] + ' ';
+          var metrics = context.measureText(testLine);
+          var testWidth = metrics.width;
+          if (testWidth > maxWidth && n > 0) {
+            context.fillText(line, x, y);
+            line = words[n] + ' ';
+            y += lineHeight;
+          }
+          else {
+            line = testLine;
+          }
+        }
+        context.fillText(line, x, y);
+      }
+	  
+	function drawCourseDetails(Details)
+	{
+		var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		  context.save();
+		  context.font = '25pt Calibri';
+		  context.textAlign = 'center';
+		  context.fillStyle = 'blue';
+		  context.fillText(Details.CourseName, 300, 50);
+		  context.font = '20pt Calibri';
+		  context.textAlign = 'center';
+		  context.fillStyle = 'black';
+		  wrapText(context, Details.Details, 300, 160, 600, 25);
+		  //context.fillText(Details.Details, 120, 160);
+		  var imageObj = new Image();
+
+		  imageObj.onload = function() {
+			context.drawImage(imageObj, 500, 20,100,70);
+		  };
+		  imageObj.src =Details.CourseName+".jpg";
+		  context.restore();
+    }
+	var CampusCourseDetails = {"Information Techonology":{"CourseName":"Information Techonology","Details":'IT includes several layers of physical equipment (hardware), virtualization and management or automation tools, operating systems and applications (software) used to perform essential functions. User devices, peripherals and software, such as laptops, smartphones or even recording equipment, can be included in the IT domain. IT can also refer to the architectures, methodologies and regulations governing the use and storage of data.',"Fees":10,"StartDate":"9/9/16"},
+	"Metallurgy":{"CourseName":"Metallurgy","Details":'Metallurgy is a domain of materials science and engineering that studies the physical and chemical behaviour of metallic elements, their intermetallic compounds, and their mixtures, which are called alloys. Metallurgy is also the technology of metals: the way in which science is applied to the production of metals, and the engineering of metal components for usage in products for consumers and manufacturers. The production of metals involves the processing of ores to extract the metal they contain, and the mixture of metals, sometimes with other elements, to produce alloys. ',"Fees":10,"StartDate":"9/9/16"},
+	"Aeronautic":{"CourseName":"Aeronautic","Details":'Aeronautical courses are typically available through bachelor"s, master"s, or doctorate degree programs in aeronautical engineering or aviation. These courses are specifically designed for individuals who want to become maintenance technicians, air traffic controllers and professional pilots, and they typically combine information about aircraft construction, engineering, and mechanics.',"Fees":40,"StartDate":"10/10/16"}};
+	$("#CampusCoursesList li").click(function() {
+		drawCourseDetails(CampusCourseDetails[this.id]);
+    });
+	
+	var OnlineCourseDetails = {"Algorithms":{"CourseName":"Algorithms","Details":"Algorithms are essential to the way computers process data. Many computer programs contain algorithms that detail the specific instructions a computer should perform (in a specific order) to carry out a specified task, such as calculating employees' paychecks or printing students' report cards. Thus, an algorithm can be considered to be any sequence of operations that can be simulated by a Turing-complete system. ","Fees":5,"StartDate":"01/02/16"},
+	"Machine Learning":{"CourseName":"Machine Learning","Details":"Machine learning is the science of getting computers to act without being explicitly programmed. In the past decade, machine learning has given us self-driving cars, practical speech recognition, effective web search, and a vastly improved understanding of the human genome. Machine learning is so pervasive today that you probably use it dozens of times a day without knowing it. Many researchers also think it is the best way to make progress towards human-level AI.","Fees":35,"StartDate":"18/11/16"}};
+	$("#OnlineCoursesList li").click(function() {
+		drawCourseDetails(OnlineCourseDetails[this.id]);
+    });
+	
+	var CurrencyRatioDollar = {"Dollar":1,"Yen":101.58,"Rupee":67.02};
+	var CurrentCurrency = "Dollar";
+	$("#SelectedCurrDiv").text("Selected Currency: "+CurrentCurrency);
+	$(".dropdown-content a").click(function() {
+		//alert(this.id);
+		for(var i=1;i<=5;i++)
+		{
+
+			var x = $("#Fee"+i).text();
+			var y = parseInt(x);
+			var x1 = (y *(CurrencyRatioDollar[this.id]/CurrencyRatioDollar[CurrentCurrency])).toFixed(0);
+			console.log(i+" "+x1);
+			$("#Fee"+i).text(x1);
+		}
+		CurrentCurrency = this.id;
+		$("#SelectedCurrDiv").text("Selected Currency: "+CurrentCurrency);
+    });
+	
+	
+	
+});
+
+</script>
+
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+	margin-top:25px;
+	margin-left:30px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
+
+<script>
+  function sayHI() {
+    worker.postMessage({'cmd': 'start', 'msg': 'Hi'});
+  }
+
+  function stop() {
+    // worker.terminate() from this script would also stop the worker.
+    worker.postMessage({'cmd': 'stop', 'msg': 'Bye'});
+  }
+
+  function unknownCmd() {
+    worker.postMessage({'cmd': 'foobard', 'msg': '???'});
+  }
+
+  var worker = new Worker('CurrencyConverter.js');
+
+  worker.addEventListener('message', function(e) {
+	alert(e.data);
+   //document.getElementById('result').textContent = e.data;
+  }, false);
+</script>
+
+
+
+	
+</head>
+<body>
+<div class="Outerbox">
+
+<!--<button onclick="sayHI()">Say HI</button>
+<button onclick="unknownCmd()">Send unknown command</button>
+<button onclick="stop()">Stop worker</button>
+<div id="result"></div>
+-->
+
+	<div id = "nav">
+		<div id="EduForAll">
+			<div id="InnerEduForAll">Education for everyone</div>
+			<div id="LoggedInUser">
+			</div>
+		</div>
+		<div id="NavDiv">
+			<div class="navLinks" id="HomeTab"><div class="navTextDiv" >Home</div></div>
+			<div class="navLinks" id="newsletterTab"><div class="navTextDiv" >Newsletter</div></div>
+			<div class="navLinks" id="CoursesTab"><div class="navTextDiv">Courses</div></div>
+			<div class="navLinks" id = "facultyTab"><div class="navTextDiv">Faculty</div></div>
+			<div class="navLinks" id = "AdmissionTab"><div class="navTextDiv">Admission</div></div>
+			<div class="navLinks" id = "ContactUsTab"><div class="navTextDiv">Contact Us</div></div>
+		</div>
+	</div>
+	<div id = "content">
+		<div id="CourseDivId" >
+		<div  style="margin-top:30px;">
+			<h4 class ="DisplayInlineCls" style="margin-left:20px;margin-top:20px;">Course Available:</h4>
+			<h4 class ="DisplayInlineCls" style="margin-left:60px;">Start Date:</h4>
+			<h4 class ="DisplayInlineCls" style="margin-left:20px;">Course Fee:</h4>
+			<div style="text-align:left;">
+				<h5 style="margin-left:20px;">At Campus:</h5>
+				<ul id="CampusCoursesList">
+				  <li id="Information Techonology">
+					<h5 class ="DisplayInlineCls"style="margin-left:0px;">Information Techonology</h5>
+					<h5 class ="DisplayInlineCls"style="margin-left:20px;"><mark>16/06/2016</mark></h5>
+					<h5 id="Fee1" class ="DisplayInlineCls"style="margin-left:40px;">10</h5>
+				  </li>
+				  <li id="Metallurgy">
+					<h5 class ="DisplayInlineCls" style="margin-left:0px;">Metallurgy</h5>
+					<h5 class ="DisplayInlineCls" style="margin-left:100px;"><mark>10/08/2016</mark></h5>
+					<h5 id="Fee2" class ="DisplayInlineCls" style="margin-left:40px;">20</h5>
+				  </li>
+				  <li id="Aeronautic">
+					<h5 class ="DisplayInlineCls" style="margin-left:0px;">Aeronautic</h5>
+					<h5 class ="DisplayInlineCls" style="margin-left:100px;"><mark>10/10/2016</mark></h5>
+					<h5 id="Fee3" class ="DisplayInlineCls" style="margin-left:40px;">40</h5>
+				  </li>
+				</ul>
+			</div>
+			<div style="text-align:left;">
+				<h5 style="margin-left:20px;">Online:</h5>
+				<ul id="OnlineCoursesList">
+				  <li id="Algorithms">
+					<h5 class ="DisplayInlineCls"style="margin-left:0px;">Algorithms</h5>
+					<h5 class ="DisplayInlineCls"style="margin-left:100px;"><mark>01/02/2016</mark></h5>
+					<h5 id="Fee4" class ="DisplayInlineCls"style="margin-left:40px;">5</h5>
+				  </li>
+				 <li id="Machine Learning">
+					<h5 class ="DisplayInlineCls"style="margin-left:0px;">Machine Learning</h5>
+					<h5 class ="DisplayInlineCls"style="margin-left:59px;"><mark>18/11/2016</mark></h5>
+					<h5 id="Fee5" class ="DisplayInlineCls"style="margin-left:40px;">35</h5>
+				  </li>
+				</ul>
+			</div>
+			</div>
+			
+			<div class="dropdown">
+			  <button class="dropbtn">Select Currency</button>
+			  <div class="dropdown-content">
+				<a  id="Dollar" href="#">Dollar</a>
+				<a id="Yen" href="#">Yen</a>
+				<a id="Rupee" href="#">Rupee</a>
+			  </div>
+			</div>
+			<div id="SelectedCurrDiv" style="">Selected Currency: </div>
+			
+		</div>
+		<div id="CanvasDiv"style="">
+			<canvas style=""id="myCanvas" width="700px" height="490px">
+			</canvas>
+		</div>
+	</div>	
+</div>
+</body>
+</html>

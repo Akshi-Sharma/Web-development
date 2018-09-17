@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Rockford University</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="form.css" type="text/css"/>
+<script src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript" >
+$(document).ready(function()
+{
+	$("#LoggedInUser").hide();
+	$("#RegistrationSuccess").hide();
+	
+	$("#HomeTab").click(function(){
+		window.location.href = "Rockford University.html";
+	});
+	$("#newsletterTab").click(function(){
+		window.location.href = "newsletter.html";
+	});
+	$("#CoursesTab").click(function(){
+		window.location.href = "Courses.html";
+	});
+	$("#facultyTab").click(function(){
+		window.location.href = "faculty.html";
+	});
+	$("#AdmissionTab").click(function(){
+		window.location.href = "admission.html";
+	});
+	$("#ContactUsTab").click(function(){
+		window.location.href = "ContactUs.html";
+	});
+	
+	var username = localStorage.getItem('usernameID');
+	if(username!='' && username!=null && username!=undefined)
+	{
+		localStorage.setItem('usernameID', username);
+		$("#LoggedInUser").show();
+		$("#LoggedInUser").text("Welcome " +localStorage.getItem('usernameID') );
+	}
+	$("form").submit(function(e){
+			e.preventDefault();
+			localStorage.setItem('usernameID', $("#firstname").val()+" "+$("#lastname").val());
+			$("#LoggedInUser").show();
+			$("#LoggedInUser").text("Welcome " +localStorage.getItem('usernameID') );
+			$('#form_id')[0].reset();
+			$("#RegistrationSuccess").show(1000).delay(2000).hide(1000);
+    });
+
+});
+
+</script>
+
+
+
+</head>
+<body>
+<div class="Outerbox">
+	<div id = "nav">
+		<div id="EduForAll">
+			<div id="InnerEduForAll">Education for everyone</div>
+			<div id="LoggedInUser">
+			</div>
+		</div>
+		<div id="NavDiv">
+			<div class="navLinks" id="HomeTab"><div class="navTextDiv" >Home</div></div>
+			<div class="navLinks" id="newsletterTab"><div class="navTextDiv" >Newsletter</div></div>
+			<div class="navLinks" id="CoursesTab"><div class="navTextDiv">Courses</div></div>
+			<div class="navLinks" id = "facultyTab"><div class="navTextDiv">Faculty</div></div>
+			<div class="navLinks" id = "AdmissionTab"><div class="navTextDiv">Admission</div></div>
+			<div class="navLinks" id = "ContactUsTab"><div class="navTextDiv">Contact Us</div></div>
+		</div>
+	</div>
+	<div id = "content" style="background-color:#BCF394;">
+		<div id="formDiv" >
+			 <form  id="form_id" action="#" method="GET">
+			  <fieldset>
+			   <legend>Registration</legend>
+				 <label for="firstname">First Name *</label> 
+				 <input style="margin-left:40px;" type="text" id="firstname" name="firstname" placeholder="First Name" required />
+				 <br/><br/>
+				<label for="lastname">Last Name *</label> 
+				<input  style="margin-left:42px;" type="text" id="lastname" name="lastname" placeholder="Last Name" required />
+				<br/><br/>
+			    <label for="email">Email *</label> 
+				 <input style="margin-left:74px;" type="email" id="email" name="email" placeholder="e.g. swapnil@example.com" title="Please enter a valid email" required />
+				<br/><br/>
+				 <label for="tel">Mobile *</label> 
+				 <input style="margin-left:66px;" type="tel" id="tel" title="don't use 0 in front" name="tel" pattern="\d{10}" placeholder="Please enter a ten digit phone number" required />
+				<br/><br/>
+				<label for="state">Country</label>
+				 <select style="margin-left:72px;" name="state" id="state">
+				  <option>Africa</option>
+				  <option>America</option>
+				  <option>Australia</option>
+				  <option>China</option>
+				  <option>England</option>
+				  <option>Japan</option>
+				  <option selected>India</option>
+				  <option>Indonesia</option>
+				 </select>
+				<br/><br/>
+			    <label for="postcode">Post code *</label>
+				 <input style="margin-left:50px;" id="postcode" name="postcode" type="number" min="10001" max="999999" maxlength="6" required />
+				<br/><br/>
+			    <label for="address">Address *</label>
+				 <textarea style="margin-left:60px;" id="address" name="address" type="text" required></textarea>
+				<br/><br/>				
+				<label for="username">Agree to T & C *</label>
+				 <input style="margin-left:11px;" id="checkbox" name="checkbox" type="checkbox" required />
+				<br/><br/>				
+				<label for="username">General *</label>
+				 <input style="margin-left:60px;"id="radio" name="radio" type="radio" required />Male <input id="radio" name="radio" type="radio" required />Female
+				<br/><br/>
+				<label for="password">Password *</label>
+				 <input style="margin-left:50px;"id="password" name="password" type="password" title="Minimum 8 characters, one number, one uppercase and one lowercase letter" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" required /> 
+				<br/><br/>
+				<input id="register" type="submit" value="Submit" />
+			  </fieldset>
+			  
+			 </form>
+		</div>
+		<div id="RegistrationSuccess">Registration Successful :)</div>
+	</div>	
+</div>
+</body>
+</html>

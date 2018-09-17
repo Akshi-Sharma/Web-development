@@ -1,0 +1,257 @@
+.navLinks{
+	
+	width:15.2%;
+	float:left;
+	height:80%;
+	background: #808080;
+    border-radius: 25px;
+	position:relative;
+	top:5%;
+	margin-left:1%;
+}
+.navTextDiv{
+	position:absolute;top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+.mySlides {display:none;}
+.Outerbox{
+	height:610px;
+	width:1350px;
+	background-color:#000080;
+	text-align:center;
+}
+#nav{
+	height:15%;
+	width:80%;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+#EduForAll{
+	height:40%;
+	position:relative;
+}
+#InnerEduForAll{
+	position:absolute;
+	right:53px;
+	bottom:0px;
+	color:white;
+	font-size:20px;
+}
+#NavDiv{
+	height:60%;
+}
+#content{
+	/*border:solid 2px black;*/
+	height:82%;
+	margin-left:10%;
+	width:88%;
+	margin-top:1%;
+	background-color:#00ffff;
+}
+#SlideShowDiv{
+	height:30%;
+}
+#SlideShowImageDiv{
+	width:87%;
+	float:left;
+	height:100%;
+	background-color:#00ffff;
+}
+#loginwindow{
+	width:13%;
+	float:right;
+	height:100%;
+	background-color:grey;
+}
+#OnlineLearn{
+	margin-top:15%;
+}
+#UsernameDiv{
+	margin-left:15%;
+	margin-top:6%;
+}
+#LoginButtonDiv{
+	float:right;
+	margin-top:6%;
+}
+.mainContentDiv{
+	width:87%;
+	height:70%;
+	
+}
+#para1Div{
+	width:40%;
+	height:100%;
+	float:left;
+	position:relative;
+	text-align:left;
+	background-color:#c0c0c0;
+}
+#para1ImgDiv{
+	position:absolute;
+	bottom:10%;
+	left:5%;
+}
+#para1Img{
+	width:70px;
+	height:70px;
+}
+.para2Div{
+	width:60%;
+	height:100%;
+	float:right;
+	text-align:left;
+	background-color:#e0eeee;
+}
+#para2Sub1{
+	clear:both;
+	width:100%;
+	
+}
+#para2Sub1Sub1{
+	width:50%;
+	display:inline;
+	margin-top:5%;
+	
+}
+#para2Sub1Sub2{
+	width:15%;
+	margin-left:77%;
+	margin-top:0%;
+	display:inline;
+}
+
+#para2Sub1Sub2Img{
+	width:120px;
+	height:84px;
+}
+#para2Sub2{
+	clear:both;
+	width:100%;
+	background-color:#c0c0c0;
+}
+
+#para2Sub2Sub1{
+	width:15%;
+	float:left;
+	margin-left:0%;
+	margin-top:0%;
+}
+
+
+#para2Sub2Sub1Img{
+	width:120px;
+	height:120px;
+}
+#para2Sub2Sub2{
+	float:right;
+	width:80%;
+	margin-top:0%;
+	margin-left:5%;
+}
+#LoggedInUser{
+	position:absolute;
+	right:-100px;
+	bottom:15px;
+}
+#NewsLetterDiv{
+	width:100%;
+	float:left;
+	height:100%;
+	background-color:#00ffff;
+}
+ul.images {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  background-color: #ddd;
+}
+ul.images li {
+  display: inline;
+  width: 150px;
+  height: 150px;
+}
+#FacultyIconsDiv{
+	width:100%;
+	float:left;
+	height:100%;
+	background-color:#00ffff;
+}
+#facultyDescription{
+	width:100%;
+	height:46%;
+	margin-top:1%;
+	background-color: #1affd1;
+	padding-top:10px;
+}
+
+.ContactUsDiv{
+	position:relative;
+	background-color:#F0ADC9;
+}
+#GenInfo{
+	position:absolute;
+	width:35%;
+	left:70px;
+	top:50px;
+	height:400px;
+}
+#mapDiv{
+	position:absolute;
+	width:35%;
+	right:70px;
+	top:50px;
+	height:400px;
+}
+
+#RegistrationSuccess{
+	width:200px;
+	height:100px;
+	position:absolute;
+	right:100px;
+	top:300px;
+	color:red;
+	font-size:30px;
+}
+#formDiv{
+	text-align:left;
+	margin-top:1%;
+	width:500px;
+	margin-left:300px;
+}
+#register {
+	margin-left:300px;
+	width:100px;
+    padding:5px 15px; 
+    background:#E9B686; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+#CourseDivId{
+	width:40%;
+	height:100%;
+	float:left;
+	text-align:left;
+	background-color:#b3ffb3;
+}
+.DisplayInlineCls{
+display:inline;
+}
+#CanvasDiv{
+	width:60%;
+	height:100%;
+	float:right;
+	background-color:#adebeb;
+}
+#SelectedCurrDiv{
+	border:solid 1px green;
+	background-color:#d9ff66;
+	width:200px;
+	margin-left:250px;
+	margin-top:-30px;
+}

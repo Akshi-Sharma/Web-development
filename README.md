@@ -1,2 +1,2 @@
 # Web-development
-Projects based on HTML, CSS, Bootstrap, Grunt, Gulp
+Projects based on front/back end web devolpment.
